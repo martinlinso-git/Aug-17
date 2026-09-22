@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JSON & JavaScript Examples</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, sans-serif;
+      background-color: #f8fafc;
+      color: #0f172a;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+    }
+
+    h1 {
+      font-size: 1.875rem;
+      margin-bottom: 1.5rem;
+      color: #1e293b;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.5rem;
+    }
+
+    h3 {
+      font-size: 1.125rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #334155;
+    }
+
+    p {
+      background: #ffffff;
+      padding: 0.75rem 1rem;
+      margin-bottom: 0.75rem;
+      border-radius: 6px;
+      border-left: 4px solid #3b82f6;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    table {
+      width: 100%;
+      margin: 0.75rem 0 1.5rem 0;
+      border-collapse: collapse;
+      background: #ffffff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: none !important;
+    }
+
+    th, td {
+      padding: 0.75rem 1rem;
+      text-align: left;
+    }
+
+    th {
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    tr {
+      border-bottom: 1px solid #e2e8f0;
+      transition: background-color 0.15s ease;
+    }
+
+    tr:last-child {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+
+    tr:hover {
+      background-color: #f1f5f9;
+    }
+
+    td img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <h1>JavaScript & JSON PDF Code Examples</h1>
+
+  <script>
+    (() => {
+      let obj = { key1: `Frontend`, key2: `Backend`, key3: `DataBase` };
+      let { key1, ...obj2 } = obj;
+      let { key2, ...obj3 } = obj2;
+      let { key3 } = obj3;
+      document.write(`<p><strong>1. Object Destructuring with Rest:</strong> ${key1} ${key2} ${key3}</p>`);
+    })();
+
+    (() => {
+      let [x, y, ...z] = [10, 20, 30, 40, 50];
+      let [a, ...b] = z;
+      let [d, e] = b;
+      document.write(`<p><strong>2. Array Destructuring with Rest:</strong> ${x} ${y} ${a} ${d} ${e}</p>`);
+    })();
+
+    (() => {
+      let obj = { 
+        sub_one: `ReactJS`, 
+        sub_two: `NodeJS`,
+        sub_three: `MongoDB`
+      };
+      let { sub_one, sub_two, sub_three } = obj;
+      document.write(`<p><strong>3. Nested Object Destructuring:</strong> ${sub_one} ${sub_two} ${sub_three}</p>`);
+    })();
+
+    (() => {
+      const person = { name: "John" };
+      const { age = 25 } = person;
+      console.log("4. Default Value:", age);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello_1`, key2: `Hello_2`, key3: `Hello_3` };
+      let { key1, key2, key3 } = obj; 
+      document.write(`<p><strong>5. Data Access:</strong> Dot: ${obj.key1}, Bracket: ${obj["key2"]}, Destructured: ${key3}</p>`);
+    })();
+
+    (() => {
+      let [x, y, z] = [10, 20, 30];
+      document.write(`<p><strong>6. Array Destructuring:</strong> ${x} ${y} ${z}</p>`);
+    })();
+
+    (() => {
+      let obj1 = { key1: `Hello_1` };
+      let obj2 = { key2: `Hello_2` };
+      let obj3 = { ...obj1, ...obj2 };
+      document.write(`<p><strong>7. Object Spread Concat:</strong> ${obj3.key1} ${obj3.key2}</p>`);
+    })();
+
+    (() => {
+      let obj1 = { frontend: `React` };
+      let obj2 = { backend: `NodeJS` };
+      let obj3 = Object.assign(obj1, obj2);
+      let { frontend, backend } = obj3; 
+      document.write(`<p><strong>8. Object.assign Merge:</strong> ${frontend} ${backend}</p>`);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello_1`, key2: `Hello_2`, key3: `Hello_3` };
+      let arr = Object.keys(obj);
+      document.write(`<p><strong>9. Object.keys():</strong> ${arr.join(", ")}</p>`);
+    })();
+
+    (() => {
+      let emps = [
+        { e_id: 111, e_name: `e_one`, e_sal: 10000 },
+        { e_id: 222, e_name: `e_two`, e_sal: 20000 },
+        { e_id: 333, e_name: `e_three`, e_sal: 30000 },
+        { e_id: 444, e_name: `e_four`, e_sal: 40000 },
+        { e_id: 555, e_name: `e_five`, e_sal: 50000 }
+      ];
+
+      document.write(`<h3>10. Employee Table</h3><table><tr><th>e_id</th><th>e_name</th><th>e_sal</th></tr>`);
+      emps.forEach(element => {
+        document.write(`<tr><td>${element.e_id}</td><td>${element.e_name}</td><td>${element.e_sal}</td></tr>`);
+      });
+      document.write(`</table>`);
+    })();
+
+    (() => {
+      let users = [
+        { ename: `eone`, eimage: `https://www.shutterstock.com/image-vector/baby-cat-crying-pixel-art-260nw-2414668007.jpg` },
+        { ename: `etwo`, eimage: `https://preview.redd.it/the-cat-looks-pixelated-because-of-the-windows-v0-lw7w5ltdqlf81.jpg?width=640&crop=smart&auto=webp&s=50c6d7eef9612f2737483c3b7d6c1ae6d9cfbb93` }
+      ];
+
+      document.write(`<h3>11. User Images Table</h3><table><tr><th>ename</th><th>eimage</th></tr>`);
+      users.forEach(element => {
+        document.write(`<tr><td>${element.ename}</td><td><img src="${element.eimage}" alt="${element.ename}"></td></tr>`);
+      });
+      document.write(`</table>`);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello_1`, key2: `Hello_2`, key3: `Hello_3` };
+      let arr = Object.values(obj); 
+      document.write(`<p><strong>12. Object.values():</strong> ${arr.join(", ")}</p>`);
+    })();
+
+    (() => {
+      let obj = { key1: { key2: { msg: "welcome to json" } } };
+      let { key1: { key2: { msg } } } = obj;
+      document.write(`<p><strong>13 & 14. Multi-level Destructuring:</strong> ${msg}</p>`);
+    })();
+
+    (() => {
+      let obj = { key1: { key2: [`ReactJS`] } };
+      let { key1: { key2 } } = obj;
+      document.write(`<p><strong>15. Array inside Object Destructuring:</strong> ${key2[0]}</p>`);
+    })();
+
+    (() => {
+      let obj = {
+        name: `Sathya`,
+        course: `Java FullStack`,
+        address: `Hyderabad`,
+        subjects: [
+          { sub: `ReactJS`, version: `18.X` },
+          { sub: `JavaScript`, version: `ES13` },
+          { sub: `HTML`, version: `HTML5.X` }
+        ]
+      };
+
+      let { name, course, address, subjects } = obj;
+
+      document.write(`<h3>16. User & Subjects Table</h3><table>
+        <tr><td>Name</td><td>${name}</td></tr>
+        <tr><td>Course</td><td>${course}</td></tr>
+        <tr><td>Location</td><td>${address}</td></tr>
+        <tr><th>sub</th><th>version</th></tr>`);
+
+      subjects.forEach(element => {
+        document.write(`<tr><td>${element.sub}</td><td>${element.version}</td></tr>`);
+      });
+      document.write(`</table>`);
+    })();
+
+    (() => {
+      let obj = { key1: { key2: [100, { msg: `ReactJS` }] } };
+      let { key1: { key2 } } = obj;
+      document.write(`<p><strong>17. Mixed Nested Destructuring:</strong> Value: ${key2[0]}, Msg: ${key2[1].msg}</p>`);
+    })();
+
+    (() => {
+      let obj = { key1: { key1: { key1: `ReactJS` } } };
+      let { key1: x } = obj;
+      let { key1: y } = x;
+      let { key1 } = y;
+      document.write(`<p><strong>18. Renamed Destructuring:</strong> ${key1}</p>`);
+    })();
+
+    (() => {
+      let obj = { key1: `ReactJS`, key1: `ReactJS18.X` };
+      let { key1 } = obj;
+      document.write(`<p><strong>19. Duplicate Keys:</strong> ${key1}</p>`);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello`, key2: `Hello` };
+      let { key1, key2 } = obj;
+      document.write(`<p><strong>20. Duplicate Values:</strong> ${key1} ${key2}</p>`);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello` };
+      let str = JSON.stringify(obj);
+      document.write(`<p><strong>21. JSON.stringify() Type:</strong> ${typeof str}</p>`);
+    })();
+
+    (() => {
+      let jsonString = '{"key1":"Hello"}';
+      let obj = JSON.parse(jsonString);
+      document.write(`<p><strong>22. JSON.parse() Type:</strong> ${typeof obj}</p>`);
+    })();
+
+    (() => {
+      let jsonString = '{"name":"john","age":20,"city":"New York"}';
+      let obj = JSON.parse(jsonString);
+      delete obj.age;
+      console.log("23. Deleted Property Object:", obj);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello`, key2: `Welcome` };
+      document.write(`<p><strong>24. hasOwnProperty():</strong> Has key1: ${obj.hasOwnProperty("key1")}, Has key3: ${obj.hasOwnProperty("key3")}</p>`);
+    })();
+
+    (() => {
+      let obj = { key1: `React` };
+      obj.key1 = `ReactJS`;
+      document.write(`<p><strong>25. Updated Property:</strong> ${obj.key1}</p>`);
+    })();
+
+    (() => {
+      let obj1 = { key1: `Hello_1` };
+      let obj2 = { ...obj1, key2: `Hello_2` };
+      document.write(`<p><strong>26. Spread Immutability:</strong> ${obj2.key1} ${obj2.key2}</p>`);
+    })();
+
+    (() => {
+      let jsonString = '{"name":"eone","age":20}';
+      let obj = JSON.parse(jsonString);
+      obj.occupation = "Engineer";
+      console.log("27. Added Property Object:", obj);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello` };
+      Object.defineProperty(obj, "key2", { value: "welcome", writable: false });
+      Object.defineProperty(obj, "key3", { value: "reactjs", writable: true });
+      obj.key1 = "React";
+      obj.key2 = "Node";
+      obj.key3 = "Node";
+      document.write(`<p><strong>28. Object.defineProperty():</strong> ${obj.key1} ${obj.key2} ${obj.key3}</p>`);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello_1` };
+      Object.defineProperties(obj, {
+        "key2": { value: `Hello_2`, writable: false },
+        "key3": { value: `Hello_3`, writable: true }
+      });
+      obj.key1 = `Welcome_1`;
+      obj.key2 = `Welcome_2`;
+      obj.key3 = `Welcome_3`;
+      document.write(`<p><strong>29. Object.defineProperties():</strong> ${obj.key1} ${obj.key2} ${obj.key3}</p>`);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello_1` };
+      Object.freeze(obj);
+      obj.key1 = `Welcome_1`;
+      console.log("30. Object.freeze():", obj);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello_1` };
+      Object.seal(obj);
+      obj.key1 = `Welcome_1`;
+      delete obj.key1;
+      console.log("31. Object.seal():", obj);
+    })();
+
+    (() => {
+      let obj = { key1: `Hello_1`, key2: `Hello_2`, key3: `Hello_3` };
+      console.log("32. Object.entries():", Object.entries(obj));
+    })();
+
+    (() => {
+      let arr = [['key1', 'Hello_1'], ['key2', 'Hello_2'], ['key3', 'Hello_3']];
+      console.log("33. Object.fromEntries():", Object.fromEntries(arr));
+    })();
+
+    (() => {
+      let obj = { key1: `Hello_1`, key2: `Hello_2`, key3: `Hello_3` };
+      let output = [];
+      for (let key in obj) {
+        output.push(obj[key]);
+      }
+      document.write(`<p><strong>34. For...in Loop:</strong> ${output.join(" ")}</p>`);
+    })();
+  </script>
+
+</body>
+</html>
